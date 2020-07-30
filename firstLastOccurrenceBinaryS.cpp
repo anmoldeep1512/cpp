@@ -5,31 +5,22 @@ using namespace std;
 int arr[1000];
 int x, n;
 
-int firstOcc(int arr[], int n, int x){
+int binaryS(int arr[], int n, int x, bool first){
     int left = 0,mid;
     int right = n-1;
     int result = -1;
     while(left<=right){
         mid = (left+right)/2;
         if(x==arr[mid]){
-            result = mid;
-            right = mid - 1;
-         }
-         else if(x<arr[mid]) right = mid - 1;
-         else left = mid + 1;
-    }
-    return result;
-}
+                if(first == true){
+                    result = mid;
+                    right = mid - 1;
+                }
+                else {
+                    result = mid;
+                    left = mid + 1;
+                }
 
-int lastOcc(int arr[], int n, int x){
-    int left = 0,mid;
-    int right = n-1;
-    int result = -1;
-    while(left<=right){
-        mid = (left+right)/2;
-        if(x==arr[mid]){
-            result = mid;
-            left = mid + 1;
          }
          else if(x<arr[mid]) right = mid - 1;
          else left = mid + 1;
@@ -47,8 +38,8 @@ int main(){
     cout<<"\nEnter the number to find: ";
     cin>>x;
 
-    cout<<"First Occurrence: "<<firstOcc(arr, n, x);
-    cout<<"\nLast Occurrence: "<<lastOcc(arr, n, x);
+    cout<<"First Occurrence: "<<binaryS(arr, n, x, true);
+    cout<<"\nLast Occurrence: "<<binaryS(arr, n, x, false);
 
     return 0;
 }
