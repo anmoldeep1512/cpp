@@ -25,17 +25,21 @@ struct Student{
 
 }student1;
 
+void print(Student student){
+    cout<<student.ID<<" "<<student.year<<" "<<student.name<<"\n";
+}
+
 int main(){
-    cout<<student1.ID<<" "<<student1.year<<" "<<student1.name<<"\n";
+    print(student1);
 
     Student student2;
-    cout<<student2.ID<<" "<<student2.year<<" "<<student2.name<<"\n";
+    print(student2);
 
     Student student3(2018);
-    cout<<student3.ID<<" "<<student3.year<<" "<<student3.name<<"\n";
+    print(student3);
 
     Student student4("tom", 23, 2007);
-    cout<<student4.ID<<" "<<student4.year<<" "<<student4.name<<"\n";
+    print(student4);
 
     return 0;
 }
