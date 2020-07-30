@@ -42,6 +42,7 @@ int main(){
     int lastOcc = binaryS(arr, n, x, false);
     int numOcc = lastOcc - firstOcc + 1;
 
-    cout<<"Number of Occurences: "<<numOcc;
+    if (firstOcc == -1) cout<<"\nNumber doesnot appear in array.";
+    else cout<<"\nNumber of Occurences: "<<numOcc;
     return 0;
 }
